@@ -1,0 +1,59 @@
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    background-color: #242424;
+    color: #f0f0f0;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+}
+
+.unguessed-letter {
+    background-color: #444;
+    color: #f0f0f0;
+    border: none;
+    margin: 2px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.guessed-correctly-letter {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    margin: 2px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.guessed-incorrectly-letter {
+    background-color: #f44336; /* Red */
+    color: white;
+    border: none;
+    margin: 2px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dead-language-tile,
+.living-language-tile {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.dead-language-tile {
+    opacity: 0.4;
+    text-decoration: line-through;
+}
