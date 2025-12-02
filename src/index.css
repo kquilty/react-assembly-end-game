@@ -16,12 +16,13 @@ body {
     margin: 0;
 
     /* A fall-back if the video background doesn't load */
-    background-image: url('../images/cyber-wave.gif');
+    /* background-image: url('../images/cyber-wave.gif');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     min-height: 100vh;
+    z-index: -2; */
 }
 .bg-video-wrapper {
     position: fixed;
