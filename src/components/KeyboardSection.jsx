@@ -1,4 +1,4 @@
-function KeyboardSection({alphabet, guessedLetters, answer, setGuessedLetters}) {
+function KeyboardSection({alphabet, guessedLetters, answer, handleLetterGuess}) {
 
     return (
         <section className="keyboard-section">
@@ -16,7 +16,7 @@ function KeyboardSection({alphabet, guessedLetters, answer, setGuessedLetters}) 
                     key={letter} 
                     className={style}
                     onClick={() => {
-                        handleLetterGuess(letter, guessedLetters, setGuessedLetters)
+                        handleLetterGuess(letter)
                     }}
                 >
                     {letter.toUpperCase()}
@@ -24,18 +24,6 @@ function KeyboardSection({alphabet, guessedLetters, answer, setGuessedLetters}) 
             })}
         </section>
     )
-}
-
-function handleLetterGuess(letter, guessedLetters, setGuessedLetters) {
-    console.log("Guessed letter:", letter)
-
-    if (guessedLetters.includes(letter)) {
-        console.log("Letter already guessed:", letter)
-        return // Ignore repeat guesses
-    }
-
-    // Accept the guess
-    setGuessedLetters([...guessedLetters, letter])
 }
 
 export default KeyboardSection
