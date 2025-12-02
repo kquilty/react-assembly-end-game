@@ -26,6 +26,11 @@ function App() {
         return answer.toUpperCase().split('').every(letter => guessedLetters.includes(letter))
     }
 
+    function handleNewGameClicked() {
+        setAnswer(getRandomWord())
+        setGuessedLetters([])
+    }
+
     return (
     <>
         <Header />
@@ -34,7 +39,7 @@ function App() {
 
         <LanguageList languages={languages} guessedLetters={guessedLetters} answer={answer} />
 
-        <AnswerSection answer={answer} />
+        <AnswerSection answer={answer} guessedLetters={guessedLetters} isGameLost={isGameLost} isGameWon={isGameWon} />
   
         <KeyboardSection 
             alphabet={alphabet} 
@@ -43,7 +48,7 @@ function App() {
             setGuessedLetters={setGuessedLetters}
         />
 
-        <NewGameButton />
+        <NewGameButton onClick={handleNewGameClicked} />
     </>
   )
 }
@@ -90,10 +95,20 @@ function LanguageList({languages, guessedLetters, answer}) {
     )
 }
 
-function AnswerSection({answer}) {
+function AnswerSection({answer, guessedLetters, isGameLost, isGameWon}) {
+    let answerTiles = answer.toUpperCase().split('').map((letter, index) => {
+
+        const showLetter = guessedLetters.includes(letter) || isGameLost || isGameWon
+
+        return (
+            <div key={index} className="answer-tile">
+                {showLetter && letter}
+            </div>
+        )
+    })
     return (
         <section className="answer-section">
-            Answer: {answer.toUpperCase()}
+            {answerTiles}
         </section>
     )
 }
@@ -138,9 +153,9 @@ function handleLetterGuess(letter, guessedLetters, setGuessedLetters) {
     setGuessedLetters([...guessedLetters, letter])
 }
 
-function NewGameButton() {
+function NewGameButton({onClick}) {
     return (
-        <button className="new-game-button">
+        <button className="new-game-button" onClick={onClick}>
             New Game
         </button>
     )

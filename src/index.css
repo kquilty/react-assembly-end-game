@@ -15,6 +15,27 @@
 body {
     margin: 0;
 }
+.answer-section {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.answer-tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: black;
+    /* border-radius: 5px; */
+    font-weight: bold;
+    font-size: 18px;
+    color: #f0f0f0;
+    border-bottom: 3px solid #666;
+    width: 40px;
+    height: 40px;
+}
 
 .unguessed-letter {
     background-color: #444;
@@ -56,4 +77,16 @@ body {
 .dead-language-tile {
     opacity: 0.4;
     text-decoration: line-through;
+}
+
+.new-game-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
