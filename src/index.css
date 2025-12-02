@@ -1,5 +1,5 @@
 :root {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Play', system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
@@ -78,23 +78,34 @@ body {
     font-size: 16px;
     cursor: pointer;
 }
-.guessed-correctly-letter {
-    background-color: #4CAF50; /* Green */
+
+.unguessed-letter,
+.guessed-correctly-letter,
+.guessed-incorrectly-letter {
     color: white;
     border: none;
     margin: 2px;
     padding: 10px 15px;
     font-size: 16px;
     cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+}
+
+.guessed-correctly-letter {
+    background-color: #4CAF50; /* Green */
 }
 .guessed-incorrectly-letter {
     background-color: #f44336; /* Red */
-    color: white;
-    border: none;
-    margin: 2px;
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
+}
+
+.language-list-section {
+    max-width: 500px;
+    display: flex;
+    justify-self: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .dead-language-tile,
@@ -109,6 +120,15 @@ body {
 .dead-language-tile {
     opacity: 0.4;
     text-decoration: line-through;
+}
+
+.keyboard-section {
+    max-width: 600px;
+    display: flex;
+    justify-self: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .new-game-button {
