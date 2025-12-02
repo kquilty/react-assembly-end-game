@@ -15,6 +15,14 @@
 body {
     margin: 0;
 }
+
+.status-section {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .answer-section {
     margin: 20px 0;
     display: flex;

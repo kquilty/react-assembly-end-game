@@ -1,8 +1,7 @@
-function Status({isGameLost, isGameWon}) {
-    const statusText = isGameWon ? "You Won!" : isGameLost ? "You Lost!" : "In Progress"
+function Status({gameStatus}) {
     return (
         <section className="status-section">
-            Status: {statusText}
+            &nbsp;{gameStatus}&nbsp;
         </section>
     )
 }
