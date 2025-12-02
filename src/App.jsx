@@ -17,7 +17,7 @@ function App() {
     // States
     const [answer, setAnswer] = useState(() => getRandomWord())
     const [guessedLetters, setGuessedLetters] = useState([])
-    const [gameStatus, setGameStatus] = useState('in-progress') // 'in-progress', 'won', 'lost'
+    const [gameStatus, setGameStatus] = useState('')
 
     // Effects
     useEffect(() => {
