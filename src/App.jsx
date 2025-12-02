@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './App.css'
 
 // Resources / Utilities
@@ -14,15 +14,12 @@ import KeyboardSection from './components/KeyboardSection.jsx'
 
 function App() {
 
+    const NewGameButtonRef = useRef(null)
+
     // States
     const [answer, setAnswer] = useState(() => getRandomWord())
     const [guessedLetters, setGuessedLetters] = useState([])
     const [gameStatus, setGameStatus] = useState('')
-
-    // Effects
-    useEffect(() => {
-        console.log("The answer is:", answer)
-    }, [answer])
 
     // Derived values
     const isGameLost = checkIfGameLost(guessedLetters, answer)
@@ -30,6 +27,18 @@ function App() {
 
     // Static values
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    // Effects
+    useEffect(() => {
+        console.log("The answer is:", answer)
+    }, [answer])
+    useEffect(() => {
+        if (isGameLost || isGameWon) {
+            //TODO: Figure out why useRef scrollIntoView isn't working
+            //NewGameButtonRef.current.scrollIntoView({ behavior: 'smooth' })
+            document.querySelector('.new-game-button').scrollIntoView({ behavior: 'smooth' })
+        }
+    }, [isGameLost, isGameWon])
 
     function checkIfGameLost(guessedLetters, answer) {
         const incorrectGuesses = getIncorrectGuesses(guessedLetters, answer)
@@ -103,8 +112,11 @@ function App() {
             answer={answer} 
             handleLetterGuess={handleLetterGuess} />
 
-        <NewGameButton 
-            onClick={handleNewGameClicked} />
+        {(isGameLost || isGameWon) &&
+            <NewGameButton 
+                ref={NewGameButtonRef}
+                onClick={handleNewGameClicked} />
+        }
     </>
   )
 }
