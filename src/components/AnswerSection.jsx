@@ -5,7 +5,7 @@ function AnswerSection({answer, guessedLetters, isGameLost, isGameWon}) {
 
         return (
             <div key={index} className="answer-tile">
-                {showLetter && letter}
+                {showLetter && letter.toUpperCase()}
             </div>
         )
     })
