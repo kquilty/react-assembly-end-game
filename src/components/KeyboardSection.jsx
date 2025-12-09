@@ -1,20 +1,26 @@
-function KeyboardSection({alphabet, guessedLetters, answer, handleLetterGuess}) {
+function KeyboardSection({alphabet, guessedLetters, answer, handleLetterGuess, isGameLost, isGameWon}) {
 
     return (
         <section className="keyboard-section">
             {alphabet.split('').map(letter => {
                 
-                let style =  'unguessed-letter' // default
+                let className =  'unguessed-letter' // default
                 if (guessedLetters.includes(letter)) {
                     // If they guessed at this one...
-                    style = answer.split('').includes(letter) 
+                    className = answer.split('').includes(letter) 
                         ? 'guessed-correctly-letter' 
                         : 'guessed-incorrectly-letter'
                 }
 
+                const style = {
+                    cursor: isGameLost || isGameWon ? 'not-allowed' : 'pointer'
+                }
+
                 return <button 
                     key={letter} 
-                    className={style}
+                    className={className}
+                    style={style}
+                    disabled={isGameLost || isGameWon || guessedLetters.includes(letter)}
                     onClick={() => {
                         handleLetterGuess(letter)
                     }}

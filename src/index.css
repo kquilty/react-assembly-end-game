@@ -60,11 +60,11 @@ body {
     background-color: black;
     /* border-radius: 5px; */
     font-weight: bold;
-    font-size: 85px;
+    font-size: 32px;
     color: #f0f0f0;
     border-bottom: 3px solid #666;
-    width: 90px;
-    height: 90px;
+    width: 40px;
+    height: 40px;
     padding: 10px;
 }
 

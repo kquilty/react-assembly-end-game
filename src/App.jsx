@@ -110,7 +110,10 @@ function App() {
             alphabet={alphabet} 
             guessedLetters={guessedLetters} 
             answer={answer} 
-            handleLetterGuess={handleLetterGuess} />
+            handleLetterGuess={handleLetterGuess} 
+            isGameLost={isGameLost}
+            isGameWon={isGameWon}
+            />
 
         {(isGameLost || isGameWon) &&
             <NewGameButton 
