@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import './App.css'
 
+import Confetti from 'react-confetti'
+
 // Resources / Utilities
 import { getFarewellText, getRandomWord } from './utils.js'
 import { languages } from './languages.js'
@@ -90,6 +92,8 @@ function App() {
 
     return (
     <>
+        {isGameWon && <Confetti run={isGameWon} />}
+
         <Header />
 
         <Status 
